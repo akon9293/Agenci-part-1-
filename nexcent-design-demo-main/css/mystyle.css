@@ -1,0 +1,651 @@
+/* ============= root start =============== */
+:root{
+    --brandColorPrimary: #4CAF4F;
+    --brandColorSecondary: #263238;
+    --fontFamilyPrimary: "Inter", sans-serif;
+    --darkGreyColor: #4D4D4D;
+    --greyColor: #717171;
+    --lightGreyColor: #89939E;
+    --gray900Color: #18191F;
+    --gray300Color: #D9DBE1;
+    --silverColor: #F5F7FA;
+    --whiteColor: #fff;
+    --dropShadowColor20: rgba(171, 190, 209, 0.2); /*20% opacity for box shadow*/
+    --dropShadowColor40: rgba(171, 190, 209, 0.4); /*40% opacity for box shadow*/
+    --hoverOpacityBrandColorPrimary: rgba(76, 175, 79, 0.3);
+}
+/* ============= root end =============== */
+
+/* ============ css reset start ========= */
+*,
+*::before,
+*::after { 
+  padding: 0;
+  margin: 0;
+}
+
+q:before,
+q:after {
+  content: "";
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ol,
+ul,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  /* line-height: 1.5; */ /*creates issues in css reset margin, padding : 0 settings*/
+} 
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block
+} 
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  
+}
+/* ============ css reset end =============== */
+
+/* ============ common css start ============ */
+
+/* font family - Primary - Class */
+.inter {
+  font-family: var(--fontFamilyPrimary); /*"Inter", sans-serif;*/
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body{
+  font-family: var(--fontFamilyPrimary);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container{
+  /* max-width: 1216px; */ /*lesseing the designs's 144 margin, calculating from nav length */
+  max-width: 1152px; /*keeping the designs's original 144 margin 1440-(2 x 144) */
+  margin: 0 auto;
+}
+
+.flex{
+  display: flex;
+}
+
+.alignItemsCenter{
+  align-items: center;
+}
+
+/* big Title Common CSS - Without Font Color because 3 different colors are used*/
+.titleOne{
+  font-size: 64px;
+  line-height: 76px;
+  font-weight: 600;
+  color: var(--darkGreyColor);
+}
+
+/* common sub-title design */
+.subTitleOne{
+  font-size: 36px;
+  color: var(--darkGreyColor);
+  line-height: 44px;
+  font-weight: 600;
+}
+
+/* button Primary Design - login button will be size wise different than primary button */
+.btnPrimary{
+  background-color: var(--brandColorPrimary);
+  padding: 14px 32px;
+  border: 1px solid var(--brandColorPrimary);
+  border-radius: 4px;
+  color: var(--whiteColor);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  display: inline-block;
+  transition: 0.4s;
+}
+.btnPrimary:hover{
+  background-color: var(--brandColorSecondary);
+  border: 1px solid var(--brandColorSecondary);
+}
+
+/* navBar Buttons common class */
+.btnNavBar{
+  padding: 10px 20px;
+  border: 1px solid var(--brandColorPrimary);
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  display: inline-block;
+}
+
+/* common Paragraph 1 */
+.commonParaGraphOne, 
+.navMenu,
+.counterTitleNames{
+  font-size: 16px;
+  color: var(--greyColor);
+  line-height: 24px;
+}
+
+/* common Paragraph 2 */
+.commonParaGraphTwo{
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--greyColor);
+  font-weight: 400;
+}
+
+/* ============ common css end ============ */
+
+/* ============ header css start ============ */
+header{
+  background-color: var(--silverColor);
+  height: 100vh;
+
+  /* padding: 100px 0px; */
+}
+
+nav{
+  /* justify-content: space-between; */
+  padding: 22px 0px; /* padding(side)(from 100px to 50px) ommited bcz container added */
+  /* position: fixed;
+  width: 100%;  */
+  background-color: var(--silverColor);
+  /* z-index: 999; */
+}
+
+#navbarAllContentsWrapper{
+  justify-content: space-between;
+}
+/* .navLogo{
+  width: 20%;
+} */
+.navLogo img{
+  max-width: 154px;
+}
+
+menu{
+  /* width: 60%; */
+  justify-content: center;
+}
+
+menu ul{
+  gap: 50px;
+}
+
+menu ul li a{
+  transition: 0.4s;
+}
+menu ul li a:hover{
+  color: var(--brandColorPrimary);
+}
+
+.navLoginSignup{
+  /* width: 20%; */
+  justify-content: flex-end;
+  column-gap: 14px;
+}
+
+.loginBtn{
+  background-color: transparent;
+  color: var(--brandColorPrimary);
+}
+
+.navMenu li a{
+  color: var(--gray900Color);
+  font-weight: 500;
+}
+
+.signUpBtn{
+  background-color: var(--brandColorPrimary);
+  color: var(--whiteColor);
+}
+
+/* hero section start */
+
+#heroSection{
+  /* padding: 50px 0px; */
+  /* padding-bottom: 16px; */
+  height: 80%;
+  /* position: relative; */
+}
+
+.heroAllContentsWrapper{
+  justify-content: space-between;
+  gap: 104px;
+  margin-top: 130px;
+}
+
+#heroTextContentSection h1 span,
+.achievementTextSection h3 span{
+  color: var(--brandColorPrimary);
+  display: block;
+}
+
+#heroTextContentSection p{
+  margin: 16px 0 32px;
+}
+
+/* slider buttons */
+.sliderBtn{
+  margin: auto;
+  gap: 8px;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+
+.sliderBtn div{
+  background-color: var(--brandColorPrimary);
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  transition: 0.4s;
+}
+
+.sliderBtn div:hover{
+  background-color: var(--hoverOpacityBrandColorPrimary);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.sliderBtn .deActive{
+  background-color: var(--hoverOpacityBrandColorPrimary);
+} 
+/* hero section end */
+
+/* ============ header css end ============ */
+
+/* ============ clients section start ============ */
+
+#clientSection{
+  text-align: center;
+  padding: 40px 0 40px;
+  margin-top: 290px;
+}
+
+#clientSection p, 
+#communitySection p
+{
+  margin: 8px 0 16px;
+}
+
+.clientIconSsection,
+.customersIconSsection{
+  justify-content: space-between;
+  /* column-gap: 136px; */
+  padding: 25px 0 25px;
+}
+
+.clientIconSsection div:nth-child(2),
+.clientIconSsection div:nth-child(3),
+.clientIconSsection div:nth-child(4),
+.clientIconSsection div:nth-child(5),
+.clientIconSsection div:nth-child(6)
+{ 
+  margin: 0 68px;
+  /* width: 48px; */
+}
+
+.clientIconSsection div:nth-child(1)
+{ 
+  margin-right: 68px;
+  /* width: 48px; */
+}
+.clientIconSsection div:nth-child(7)
+{ 
+  margin-left: 68px;
+  /* width: 48px; */
+}
+
+.clientIconSsection img{
+  width: 48px;
+  /* height: 48px; */
+}
+
+/* ============ clients section end ============ */
+
+/* ============ community section start ============ */
+
+#communitySection{
+ text-align: center;
+ margin: 42px 0;
+}
+#communitySection .subTitleOne{
+  width: 542px;
+  margin: 0 auto; /*bcz after applying fixed width text-align: center is not working*/
+}
+
+/* CARDS design */
+.communityCardsWrapper{
+  justify-content: space-between;
+  gap: 127px;
+}
+
+.communityCard{
+  /* width: 299px; */
+  padding: 24px 32px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px var(--dropShadowColor20);
+}
+
+.communityCardImage img{
+  margin: 0 auto; /*bcz display block in image*/
+}
+
+.communityCardTitle{
+ padding: 16px 0px 8px;
+  color: var(--darkGreyColor);
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 700;
+  width: 231px;
+  margin: 0 auto;
+}
+
+/* .communityCardTitleDescription common style is same as  .commonParaGraphTwo*/
+/* ============ community section end ============ */
+/* ============ pixel Grade section start ============ */
+.pixelGradeImageSection,
+.designFooterImageSection
+{
+  width: 40%;
+  padding: 50px 60px;
+  margin: 42px 0px;
+}
+
+.pixelGradeTextSection,
+.designFooterTextSection
+{
+  width: 60%;
+}
+
+.pixelGradeTitleParaWrapper,
+.designFooterTitleParaWrapper
+{
+  width: 550px;
+}
+
+.pixelGradeTitleParaWrapper p,
+.designFooterTitleParaWrapper p
+{
+  margin: 16px 0 32px;
+}
+
+
+/* ============ pixel Grade section end ============ */
+/* ============ achievemnet section start ============ */
+#achievementSection,
+#customersSection,
+#demoSection
+{
+  background-color: var(--silverColor);
+  padding: 64px 0px;
+}
+
+.achievementTextSection,
+.counterWrapper{
+  width: 50%;
+}
+
+
+.achievementTextSection p{
+  margin-top: 8px;
+}
+
+/* .counterWrapper{
+  margin-left: auto;
+} */
+
+/* .achievementCounterSection {
+  justify-content: space-between;
+  
+} */
+
+/* achievement section - counter section css */
+.counterWrapper{
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.counterContents{
+  width: 255px;
+  column-gap: 16px;
+}
+.counterTitleNumbers{
+  color: var(--darkGreyColor);
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 700;
+}
+
+.counterTitleNames{
+  font-weight: 400;
+}
+
+/* counterTitleNames common style = commonParaGraphOne common style */
+/* ============ achievemnet section end ============ */
+
+
+/* ============ design footer section start ============ */
+/* designFooter Section style = pixelGrade Section style */
+/* ============ design footer section end ============ */
+
+/* ============ customers section start ============ */
+#customersSection,
+#demoSection{
+  padding: 32px 0px;
+}
+
+
+.customersImageSection
+{
+  width: 30%;
+  /* padding: 50px 60px;*/
+  margin-right: 78px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 8px 16px var(--dropShadowColor40);
+}
+
+
+.customersTextSection
+{
+  width: 70%;
+}
+
+
+/* .customersTitleParaWrapper
+{
+  width: 550px;
+} */
+
+
+.customersOnlyTextsWrapper p
+{
+  margin: 16px 0 32px;
+}
+
+.customersOnlyTextsWrapper p:nth-child(1)
+{
+  font-weight: 500;
+}
+
+.customersOnlyTextsWrapper .lightGreyParaStyle
+{
+  font-weight: 400;
+  color: var(--lightGreyColor);
+}
+
+.customersSectionLinkDiv a{
+  color: var(--brandColorPrimary);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.meetCustomersLink::after{
+  content: url('../assets/customer-section/right-arrow.png');
+  margin-left: 8px;
+}
+
+/* .customersIconSsection{
+  gap: 41px;
+} */
+/* .customersIconSsection div img{
+  width: 48px;
+} */
+
+/* ============ customers section end ============ */
+/* ============ demo section start ============ */
+#demoSection{
+  text-align: center; /* text align center in the parent div*/
+}
+
+#demoSection h2{
+  width: 887px;
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.demoLink::after{
+  content: url('../assets/white-right-arrow.png');
+  margin-left: 8px;
+}
+
+/* ============ demo section end ============ */
+/* ============ footer section start ============ */
+footer{
+  background-color: var(--brandColorSecondary);
+  padding: 64px 0px;
+}
+
+/* footer sub titles common style css */
+.footerCommonSubTitles{
+  color: var(--whiteColor);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  margin-bottom: 24px;
+}
+
+.footerAllContentsWrapper{
+  justify-content: space-between;
+}
+
+
+.footerCompanyInfoDivWrapper h6,
+footer ul li a
+/* input[type="email"] */
+{
+  color: var(--silverColor) !important;
+}
+
+.footerWhiteLogoDiv{
+  margin-bottom: 40px;
+}
+
+.footerCompanyInfoDivWrapper h6{
+  margin-bottom: 8px;
+}
+
+.footerSocialIconsDiv{
+  margin-top: 32px;
+}
+
+.footerSocialIconsDiv a{
+  margin-right: 16px;
+}
+
+.footerSocialIconsDiv a img{
+  width: 32px;
+  height: 32px;
+}
+
+.footerLinksAndEmailDivWrapper{
+  column-gap: 30x;
+}
+
+.footerLinksAndEmailDivWrapper ul li{
+  margin-bottom: 12px;
+}
+
+.companyInfoLinksDiv,
+.supportLinksDiv{
+  width: 166px;
+}
+
+ .formInput{
+  flex-direction: column;
+}
+
+#emailFooterInput{
+  color: var(--gray300Color);
+  /* color: var(--whiteColor); */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px 30px;
+  outline: none;
+  border: 1px solid transparent;
+
+  /* issue..................................................... */
+  background-image: url('../assets/footer/send.png');
+  background-repeat: no-repeat;
+  background-position: 5px 10px;
+
+}
+
+
+
+/* #emailFooterInput[placeholder]::after{
+  content: url('../assets/footer/send.png');
+} */
+/* input[placeholder]
+{
+    color: var(--whiteColor);
+} */
+/* ============ footer section end ============ */
+
